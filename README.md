@@ -1,1 +1,1 @@
-test
+**G**et **A**rbitrary **T**erminal

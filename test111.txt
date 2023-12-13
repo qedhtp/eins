@@ -1,0 +1,33 @@
+import subprocess
+import platform
+import time
+
+def open_terminal(position):
+    system_platform = platform.system()
+
+    if system_platform == 'Linux':
+        # 根据位置调整终端位置
+        if position == 'top-left':
+            command = ['gnome-terminal', '--geometry=80x24+0+0']
+        elif position == 'top-right':
+            command = ['gnome-terminal', '--geometry=80x24+0-0']
+        elif position == 'bottom-left':
+            command = ['gnome-terminal', '--geometry=80x24-0+0']
+        elif position == 'bottom-right':
+            command = ['gnome-terminal', '--geometry=80x24-0-0']
+        else:
+            print("Invalid position")
+            return
+
+        subprocess.run(command, shell=True)
+
+if __name__ == "__main__":
+    # 打开四个终端，分布在屏幕的四个角
+    open_terminal('top-left')
+    time.sleep(1)  # 等待一秒，以免终端之间有重叠
+    open_terminal('top-right')
+    time.sleep(1)
+    open_terminal('bottom-left')
+    time.sleep(1)
+    open_terminal('bottom-right')
+
