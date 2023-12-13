@@ -27,10 +27,11 @@ def open_terminals():
             bottom_right = f"{width},{height}"
 
             # 打开四个终端
-            subprocess.run(['gnome-terminal', '--geometry', f"80x24+{top_left}"], shell=True)
-            subprocess.run(['gnome-terminal', '--geometry', f"80x24+{top_right}"], shell=True)
-            subprocess.run(['gnome-terminal', '--geometry', f"80x24+{bottom_left}"], shell=True)
-            subprocess.run(['gnome-terminal', '--geometry', f"80x24+{bottom_right}"], shell=True)
+            command = ["gnome-terminal", "--geometry", "94x19+0+0"]
+            subprocess.run(command) # shell=True problem
+            # subprocess.run(['gnome-terminal', '--geometry', f"94x19+{top_right}"], shell=True)
+            # subprocess.run(['gnome-terminal', '--geometry', f"80x24+{bottom_left}"], shell=True)
+            # subprocess.run(['gnome-terminal', '--geometry', f"80x24+{bottom_right}"], shell=True)
     else:
         print("Unsupported operating system")
 
