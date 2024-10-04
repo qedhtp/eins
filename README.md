@@ -1,2 +1,2 @@
-As a offensive security practitioner, you may use thousands of command or other fragment but very useful information. 
-But you may can't remember everything in every time. This is why is tool emerge. 
+As an offensive security practitioner, you may use thousands of commands or other fragmentary but very useful information.
+But you can't remember everything all the time. That's why this tool was created.
