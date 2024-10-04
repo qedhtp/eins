@@ -1,1 +1,15 @@
-1. https://unix.stackexchange.com/questions/48984/how-can-i-set-the-position-that-terminal-opens-atz
+test1111
+-e 
+test222
+-e 
+test222333
+
+testqed
+-e 
+testqed
+-e ntestqed
+
+test11111111 -e
+
+
+testqedsgdsgdsnhds

